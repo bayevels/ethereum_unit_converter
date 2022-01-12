@@ -1,0 +1,23 @@
+PATH
+  remote: .
+  specs:
+    ethereum_unit_converter (0.1.0)
+      bigdecimal (~> 3.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    bigdecimal (3.0.0)
+    minitest (5.14.2)
+    rake (13.0.3)
+
+PLATFORMS
+  x86_64-darwin-20
+
+DEPENDENCIES
+  ethereum_unit_converter!
+  minitest (~> 5.0)
+  rake (~> 13.0)
+
+BUNDLED WITH
+   2.3.4

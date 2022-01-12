@@ -1,0 +1,7 @@
+module EthereumUnitConverter
+  VERSION: String
+  UNITS: String
+  def self.convert(Integer, String, String) -> String
+  def self.to_wei(Integer, String) -> Integer
+  def self.from_wei(Integer, String) -> String
+end

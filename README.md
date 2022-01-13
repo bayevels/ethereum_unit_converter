@@ -1,9 +1,6 @@
 # EthereumUnitConverter
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ethereum_unit_converter`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
+Ethereum unit converter in Ruby
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -22,8 +19,45 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Convert from unit to unit
+```ruby
+# EthereumUnitConverter.convert(amount, unit = 'wei', to_unit = 'ether')
+EthereumUnitConverter.convert(10000, 'wei', 'eth') # "0.00000000000001"
+EthereumUnitConverter.convert(1, 'eth', 'wei') # "1000000000000000000.0"
+EthereumUnitConverter.convert(1, 'eth', 'tether') # "0.000000000001"
+EthereumUnitConverter.convert(100, 'ada', 'eth') # "0.0000000000001"
+```
+### Supported Unit
+```
+  UNITS = {
+    wei: 1,
+    kwei: 1000,
+    ada: 1000,
+    femtoether: 1000,
+    mwei: 1_000_000,
+    babbage: 1_000_000,
+    picoether: 1_000_000,
+    gwei: 1_000_000_000,
+    shannon: 1_000_000_000,
+    nanoether: 1_000_000_000,
+    nano: 1_000_000_000,
+    szabo: 1_000_000_000_000,
+    microether: 1_000_000_000_000,
+    micro: 1_000_000_000_000,
+    finney: 1_000_000_000_000_000,
+    milliether: 1_000_000_000_000_000,
+    milli: 1_000_000_000_000_000,
+    ether: 1_000_000_000_000_000_000,
+    eth: 1_000_000_000_000_000_000,
+    kether: 1_000_000_000_000_000_000_000,
+    grand: 1_000_000_000_000_000_000_000,
+    einstein: 1_000_000_000_000_000_000_000,
+    mether: 1_000_000_000_000_000_000_000_000,
+    gether: 1_000_000_000_000_000_000_000_000_000,
+    tether: 1_000_000_000_000_000_000_000_000_000_000
+  }
 
+```
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -32,7 +66,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ethereum_unit_converter.
+Bug reports and pull requests are welcome on GitHub at https://github.com/bayevels/ethereum_unit_converter.
 
 ## License
 

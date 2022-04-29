@@ -12,8 +12,11 @@ Gem::Specification.new do |spec|
   spec.homepage = "https://github.com/bayevels/ethereum_unit_converter"
   spec.license = "MIT"
   spec.required_ruby_version = Gem::Requirement.new('>= 2.5.0')
-
-  spec.metadata["homepage_uri"] = 'https://github.com/bayevels/ethereum_unit_converter'
+  spec.metadata = {
+    'documentation_uri' => spec.homepage.to_s,
+    'homepage_uri' => spec.homepage.to_s,
+    'source_code_uri' => spec.homepage.to_s,
+  }
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -27,4 +30,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency 'bigdecimal', '~> 3.0'
+  spec.add_development_dependency "minitest", "~> 5.0"
+  spec.add_development_dependency "rake", "~> 13.0"
+  spec.add_development_dependency "minitest-reporters", '~> 1.5'
 end

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'ethereum_unit_converter/version'
+require 'bigdecimal'
 
 module EthereumUnitConverter
   UNITS = {
@@ -35,16 +36,16 @@ module EthereumUnitConverter
     def convert(amount, unit = 'wei', to_unit = 'ether')
       return nil if amount.nil?
 
-      return from_wei(amount, to_unit) if unit == 'wei'
+      return from_wei(amount, to_unit).to_s('F').delete_suffix('.0') if unit == 'wei'
 
-      from_wei(to_wei(amount, unit), to_unit)
+      from_wei(to_wei(amount, unit), to_unit).to_s('F').delete_suffix('.0')
     end
 
     def to_wei(amount, unit = 'ether')
       return nil if amount.nil?
 
       begin
-        BigDecimal(UNITS[unit.to_sym] * amount, 16).to_s.to_i
+        BigDecimal(UNITS[unit.to_sym] * amount, 16)
       rescue StandardError => e
         raise e.class
       end
@@ -54,7 +55,7 @@ module EthereumUnitConverter
       return nil if amount.nil?
 
       begin
-        (BigDecimal(amount, 16) / BigDecimal(UNITS[unit.to_sym], 16)).to_s
+        (BigDecimal(amount, 16) / BigDecimal(UNITS[unit.to_sym], 16))
       rescue StandardError => e
         raise e.class
       end

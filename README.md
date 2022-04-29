@@ -27,7 +27,7 @@ EthereumUnitConverter.convert(1, 'eth', 'wei') # "1000000000000000000.0"
 EthereumUnitConverter.convert(1, 'eth', 'tether') # "0.000000000001"
 EthereumUnitConverter.convert(100, 'ada', 'eth') # "0.0000000000001"
 ```
-### Supported Unit
+### Supported Units
 ```
   UNITS = {
     wei: 1,
